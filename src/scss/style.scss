@@ -1,0 +1,14 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import CoreUI styles
+@import "~@coreui/coreui/scss/coreui.scss";
+
+// Some temp fixes
+@import "fixes";
+
+// If you want to add something do it here
+@import "custom";
+ol.border-0.c-subheader-nav.m-0.px-0.px-md-3.breadcrumb {
+    background: #ffffff !important
+}
