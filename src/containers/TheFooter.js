@@ -7,7 +7,7 @@ const TheFooter = () => {
       <div>
       {new Date().getFullYear()}
         {"."}
-        {"Copyright © "} All rights reserved
+        {"Copyright © "}Vetro Media. All rights reserved
       </div>
     </CFooter>
   )

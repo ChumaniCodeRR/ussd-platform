@@ -147,7 +147,7 @@ const Manage = () => {
                                 Actions
                               </CDropdownToggle>
                               <CDropdownMenu>
-                                <CDropdownItem to={`/campaings/edit/${row.id}`}>
+                                <CDropdownItem to={`/campaings/dashboard/${row.id}`}>
                                   View
                                 </CDropdownItem>
                                 <CDropdownItem divider />

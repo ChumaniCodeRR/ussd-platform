@@ -4,6 +4,7 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const Manage = React.lazy(() => import('./views/campaings/manage/Manage'));
 const CreateNewCampaing = React.lazy(() => import('./views/campaings/newCampaing/CreateNewCampaing'));
 const EditCampaigns = React.lazy(() => import('./views/campaings/manage/EditCampaigns'));
+const DashboardView = React.lazy(() => import('./views/campaings/manage/DashboardView'))
 const Profile = React.lazy(() => import('./views/profile/Profile'));
 
 const Admin = React.lazy(() => import('./views/users/admin/Admin'));
@@ -30,6 +31,7 @@ const routes = [
   { path: '/campaings/manage', name: 'Manage', component: Manage },
   { path: '/campaings/createNew', name: 'Create new', component: CreateNewCampaing },
   { path: '/campaings/edit/:id', name: 'Edit Campaign', component: EditCampaigns },
+  {path:'/campaings/dashboard/:id',name:'Dashboard View',component:DashboardView},
 
   { path: '/admins', name: 'Admin', component: Admin, exact: true },
   { path: '/admins/admin', name: 'Admin', component: Admin },
