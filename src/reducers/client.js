@@ -11,7 +11,8 @@ import {
 } from "../actions/type";
 
 const initialState = {
-    clients: [{name:"chuiman",email:'chu2HGOMN'},
+    clients: [
+    {name:"chuiman",email:'chu2HGOMN'},
     {name:"chuiman",email:'chu2HGOMN'},
     {name:"chuiman",email:'chu2HGOMN'},
     {name:"chuiman",email:'chu2HGOMN'},

@@ -92,7 +92,7 @@ const CreateNewManagers = (props) => {
                 <div className="text-danger">This field is required</div>
               )}
               </div>
-
+        
               <button type="submit" className="btn btn-primary">
                 Create
               </button>
