@@ -1,5 +1,4 @@
-import React, { useEffect, useState, createRef } from 'react'
-import classNames from 'classnames'
+import React, { useEffect, useState, } from 'react'
 import {
   CRow,
   CCol,
@@ -12,30 +11,38 @@ import { useDispatch } from "react-redux";
 import {getCampaignById} from "../../../actions/campaing";
 import CIcon from '@coreui/icons-react'
 import ChartLineSimple from '../../charts/ChartLineSimple'
+import Spinner from "../../../helpers/spinner";
 
 
 
 const DashboardView = (props) => {
 
   const [inputs, setInputs] = useState({
-        name: "",        
+        name: "",
+        start_date: "",
+        end_date: "",        
       });
+  const [isloading, setisloading] = useState(false);
   const id = props.match.params.id;
   const dispatch = useDispatch();
   useEffect(() => {
+    setisloading(true);
     dispatch(getCampaignById(id)).then((data) => {
-      setInputs({ name: data.name});
+      setInputs({ name: data.name,start_date:data.start_date,end_date:data.end_date,});
+      setisloading(false);
     });
   }, []);
   return (
     <>
+    {isloading && <Spinner />}
+    {!isloading && (
       <CCard>
         <CCardHeader>
           Dashboard details for <CBadge color="secondary">{inputs.name}</CBadge>
         </CCardHeader>
         <CCardBody>
         <div className="alert alert-info" role="alert">
-            This page is still under development!
+            This campaing started on : {inputs.start_date} until {inputs.end_date}
           </div>
           <CRow>
       <CCol sm="6" lg="3">
@@ -116,6 +123,7 @@ const DashboardView = (props) => {
     </CRow>
         </CCardBody>
       </CCard>
+       )}
     </>
   )
 }

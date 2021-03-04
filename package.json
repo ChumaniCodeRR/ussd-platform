@@ -17,7 +17,6 @@
     "@material-ui/icons": "^4.11.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
     "axios": "^0.21.1",
-    "bootstrap": "^4.6.0",
     "classnames": "^2.2.6",
     "core-js": "^3.8.1",
     "dotenv": "^8.2.0",
