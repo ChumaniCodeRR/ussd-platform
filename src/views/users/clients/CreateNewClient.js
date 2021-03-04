@@ -18,11 +18,12 @@ const CreateNewClient = (props) => {
 
   const [inputs , setInputs] = useState({
     name:"",
-    email:""
+    email:"",
+    selected: [],
   })
 
       const { register, handleSubmit, errors } = useForm();
-      const {name,email} = inputs;
+      const {name,email,selected} = inputs;
       const dispatch = useDispatch();
       
       const campaigns = [
@@ -37,17 +38,20 @@ const CreateNewClient = (props) => {
       ] ;
       const [selectedValue, setSelectedValue ] = useState([]);
      //handle mulitiple change selector
-     const handleMultiChange = (e) => {
-       setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
-     }
 
+     const handleMultiChange = (e) => {
+
+        setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
+     }
 
       function onChange(e) {
         const { name, value } = e.target;
         setInputs((inputs) => ({ ...inputs, [name]: value }));
       }
 
-      function onSubmit(){
+      function onSubmit() {
+
+        inputs.selected = {selectedValue};  
         dispatch(createNewClient(inputs))
         .then(() =>{
           successMessage();
@@ -55,6 +59,7 @@ const CreateNewClient = (props) => {
         .catch((err) => {
           console.log(err)
         })
+        
         console.log(inputs)
       }
 
@@ -117,12 +122,15 @@ const CreateNewClient = (props) => {
                 <Select
                  name="campaigns"
                  placeholder="Campaigns"
-                 value={campaigns.filter(obj => selectedValue.includes(obj.value))}
+                 value= { campaigns.filter(obj => selectedValue.includes(obj.value)) }
                  options={campaigns}
                  onChange={handleMultiChange}
                  isMulti
                  isClearable
                 />  
+                  {selectedValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
+                  <div><b>Selected Value: </b> {JSON.stringify(selectedValue, null, 2)}</div>
+                  </div>}
               </div>
 
               <button type="submit" className="btn btn-primary">
