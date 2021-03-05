@@ -87,7 +87,7 @@ const EditAdmin = (props) => {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Update
               </button>
             </form>

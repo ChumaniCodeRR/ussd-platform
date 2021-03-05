@@ -92,7 +92,7 @@ function successMessage() {
                 <div className="text-danger">This field is required</div>
               )}
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Create
               </button>
             </form>
