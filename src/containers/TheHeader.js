@@ -38,7 +38,7 @@ const TheHeader = () => {
   }
 
   return (
-    <CHeader withSubheader>
+    <CHeader className="shadow-sm" withSubheader >
       <CToggler
         inHeader
         className="ml-md-3 d-lg-none"

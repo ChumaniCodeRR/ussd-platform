@@ -38,7 +38,7 @@ const DashboardView = (props) => {
     <>
     {isloading && <Spinner />}
     {!isloading && (
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Dashboard details for <CBadge color="secondary">{inputs.name}</CBadge>
         </CCardHeader>

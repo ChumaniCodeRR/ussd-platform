@@ -57,7 +57,7 @@ const EditAdmin = (props) => {
   }
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Editing user
         </CCardHeader>

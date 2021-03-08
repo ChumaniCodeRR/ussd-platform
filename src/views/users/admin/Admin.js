@@ -94,7 +94,7 @@ const Admin = () => {
     <>
       <CRow>
         <CCol>
-          <CCard>
+          <CCard className="shadow-sm">
             <CCardHeader>
               Overview
               <div className="float-right">

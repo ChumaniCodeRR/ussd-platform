@@ -52,7 +52,7 @@ function successMessage() {
 
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Crearing user
          

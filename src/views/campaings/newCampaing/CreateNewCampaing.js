@@ -64,7 +64,7 @@ const CreateNewCampaing = (props) => {
   }
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Create Campaign
         </CCardHeader>

@@ -48,7 +48,7 @@ const Profile = () => {
   }
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>Profile</CCardHeader>
         <CCardBody>
           <div className="alert alert-primary" role="alert">

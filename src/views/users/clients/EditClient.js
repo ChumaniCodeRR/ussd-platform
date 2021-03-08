@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const EditClient = () => {
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Overview
          
