@@ -11,7 +11,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import rootReducer from './reducers/index'
 import { icons } from './assets/icons'
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 React.icons = icons
 require('dotenv').config()

@@ -64,7 +64,7 @@ const EditCampaigns = (props) => {
     <>
       <CRow>
         <CCol>
-          <CCard>
+          <CCard className="shadow-sm">
             <CCardHeader>
               Overview
             </CCardHeader>
@@ -158,7 +158,7 @@ const EditCampaigns = (props) => {
                   onChange={onChange}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Create
               </button>
             </form>

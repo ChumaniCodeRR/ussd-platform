@@ -89,7 +89,7 @@ const Clients = () => {
 
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Overview
           <div className="float-right">

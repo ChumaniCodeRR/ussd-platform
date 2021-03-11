@@ -64,7 +64,7 @@ const CreateNewCampaing = (props) => {
   }
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Create Campaign
         </CCardHeader>
@@ -183,7 +183,7 @@ const CreateNewCampaing = (props) => {
                     <div className="text-danger">This field is required</div>
                   )}
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Create
               </button>
             </form>

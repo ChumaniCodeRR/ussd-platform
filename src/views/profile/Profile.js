@@ -48,7 +48,7 @@ const Profile = () => {
   }
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>Profile</CCardHeader>
         <CCardBody>
           <div className="alert alert-primary" role="alert">
@@ -85,7 +85,7 @@ const Profile = () => {
               )}
             </div>
 
-            <button type="submit" class="btn btn-primary" >UPDATE</button>
+            <button type="submit" className="btn btn-dark">UPDATE</button>
           </form>
         </CCardBody>
       </CCard>

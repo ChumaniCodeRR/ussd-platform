@@ -64,7 +64,7 @@ useEffect(() => {
     <>
       <CRow>
         <CCol>
-          <CCard>
+          <CCard className="shadow-sm">
             <CCardHeader>
               Overview
             </CCardHeader>

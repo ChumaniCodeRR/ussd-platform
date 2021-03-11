@@ -5,7 +5,9 @@ import {
   CCard,
   CCardHeader,
   CCardBody,
-  CWidgetDropdown,CBadge
+  CWidgetDropdown,
+  CBadge,
+  CWidgetProgress,CProgress
 } from '@coreui/react'
 import { useDispatch } from "react-redux";
 import {getCampaignById} from "../../../actions/campaing";
@@ -36,7 +38,7 @@ const DashboardView = (props) => {
     <>
     {isloading && <Spinner />}
     {!isloading && (
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Dashboard details for <CBadge color="secondary">{inputs.name}</CBadge>
         </CCardHeader>
@@ -48,7 +50,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
-          header="9.823"
+          header="203"
           text="All entries"
           footerSlot={
             <ChartLineSimple
@@ -67,7 +69,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="9.823"
+          header="823"
           text="Duplicate entries"
           footerSlot={
             <ChartLineSimple
@@ -86,7 +88,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="9.823"
+          header="9823"
           text="Positive entries"
           footerSlot={
             <ChartLineSimple
@@ -105,7 +107,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="9.823"
+          header="8823"
           text="Negative entries"
           footerSlot={
             <ChartLineSimple
@@ -121,6 +123,45 @@ const DashboardView = (props) => {
         </CWidgetDropdown>
       </CCol>
     </CRow>
+    <CRow>
+        <CCol xs="12" sm="6" md="4">
+          <CCard accentColor="info" className="shadow-sm">
+            <CCardHeader>
+            Unique vs Returning
+            </CCardHeader>
+            <CCardBody>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+              laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol xs="12" sm="6" md="4">
+          <CCard accentColor="warning" className="shadow-sm">
+            <CCardHeader>
+            Positive vs Negative vs Duplicates
+            </CCardHeader>
+            <CCardBody>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+              laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </CCardBody>
+          </CCard>
+        </CCol>
+        <CCol xs="12" sm="6" md="4">
+          <CCard accentColor="danger" className="shadow-sm">
+            <CCardHeader>
+            Network Entries
+            </CCardHeader>
+            <CCardBody>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+              laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+
         </CCardBody>
       </CCard>
        )}

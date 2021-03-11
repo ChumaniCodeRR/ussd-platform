@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createRef } from 'react'
-import classNames from 'classnames'
+import { Multiselect } from 'multiselect-react-dropdown';
 import {
   CRow,
   CCol,
@@ -9,7 +9,7 @@ import {
 } from '@coreui/react'
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import {createNewClient} from '../../../actions/client';
 import Select from "react-select";
 //import "react-select/dist/react-select.css";
@@ -19,10 +19,15 @@ const CreateNewClient = (props) => {
   const [inputs , setInputs] = useState({
     name:"",
     email:"",
+<<<<<<< HEAD
     selected: [],
+=======
+>>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
   })
-
+  const [selectedItem,setSelectedItem] = useState([])
+ 
       const { register, handleSubmit, errors } = useForm();
+<<<<<<< HEAD
       const {name,email,selected} = inputs;
       const dispatch = useDispatch();
       
@@ -43,11 +48,17 @@ const CreateNewClient = (props) => {
 
         setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
      }
+=======
+      const {name,email } = inputs;
+      const dispatch = useDispatch();
+      const campaingList = useSelector((state) => state.campaigns);
+>>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
 
       function onChange(e) {
         const { name, value } = e.target;
-        setInputs((inputs) => ({ ...inputs, [name]: value }));
+        setInputs((inputs) => ({ ...inputs, [name]: value, }));
       }
+<<<<<<< HEAD
 
       function onSubmit() {
 
@@ -61,6 +72,15 @@ const CreateNewClient = (props) => {
         })
         
         console.log(inputs)
+=======
+ 
+    function  onSelect( selectedItem) {
+      setSelectedItem(selectedItem)
+    }
+    function onSubmit(){
+        console.log({inputs,selectedItem})
+        //sti
+>>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
       }
 
       function successMessage() {
@@ -78,44 +98,43 @@ const CreateNewClient = (props) => {
 
   return (
     <>
-      <CCard>      
-        <CCardHeader>
-          Create new user       
-        </CCardHeader>
+      <CCard className="shadow-sm">
+        <CCardHeader>Create new user</CCardHeader>
         <CCardBody>
-        <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-                <label>Name *</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter user full name"
-                  name="name"
-                  value={name}
-                  onChange={onChange}
-                  ref={register({ required: true })}
-                />
-                {errors.name && (
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-group">
+              <label>Name *</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter user full name"
+                name="name"
+                value={name}
+                onChange={onChange}
+                ref={register({ required: true })}
+              />
+              {errors.name && (
                 <div className="text-danger">This field is required</div>
               )}
-              </div>
-              <div className="form-group">
-                <label>
-                  Email (Enter a working email address, an email will be sent to
-                  the user with credentials) *
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter user email address"
-                  name="email"
-                  value={email}
-                  onChange={onChange}
-                  ref={register({ required: true })}
-                />
-                {errors.email && (
+            </div>
+            <div className="form-group">
+              <label>
+                Email (Enter a working email address, an email will be sent to
+                the user with credentials) *
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter user email address"
+                name="email"
+                value={email}
+                onChange={onChange}
+                ref={register({ required: true })}
+              />
+              {errors.email && (
                 <div className="text-danger">This field is required</div>
               )}
+<<<<<<< HEAD
               </div>
               <div className="form-group">
                 <label>Select Campaigns (working) </label>
@@ -132,15 +151,29 @@ const CreateNewClient = (props) => {
                   <div><b>Selected Value: </b> {JSON.stringify(selectedValue, null, 2)}</div>
                   </div>}
               </div>
+=======
+            </div>
+            <div className="form-group">
+              <label>Select the campigns for this client </label>
+              {campaingList.campaigns.map(item => (
+                <p></p>
+              ))}
+              <Multiselect
+                onSelect={onSelect}
+                options={campaingList.campaigns} // Options to display in the dropdown
+                displayValue="name" // Property name to display in the dropdown options
+              />
+            </div>
+>>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
 
-              <button type="submit" className="btn btn-primary">
-                Create
-              </button>
-        </form>
+            <button type="submit" className="btn btn-primary">
+              Create
+            </button>
+          </form>
         </CCardBody>
       </CCard>
     </>
-  )
+  );
 }
 
 export default CreateNewClient

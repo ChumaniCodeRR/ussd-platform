@@ -14,7 +14,7 @@ import {
 const UssdShortCodes = () => {
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           USSD
         </CCardHeader>

@@ -92,7 +92,7 @@ const Manage = () => {
     <>
       <CRow>
         <CCol>
-          <CCard>
+          <CCard className="shadow-sm">
             <CCardHeader>Overview</CCardHeader>
             <CCardBody>
               <div className=" row mb-3">

@@ -52,7 +52,7 @@ const CreateNewManagers = (props) => {
 
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Create new user
          
@@ -93,7 +93,7 @@ const CreateNewManagers = (props) => {
               )}
               </div>
         
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Create
               </button>
             </form>

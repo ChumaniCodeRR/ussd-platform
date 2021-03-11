@@ -12,7 +12,7 @@ import {
   CLink
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-
+import logo from '../assets/Logo.png';
 // routes config
 import routes from '../routes'
 
@@ -37,8 +37,9 @@ const TheHeader = () => {
     dispatch({type: 'set', sidebarShow: val})
   }
 
+
   return (
-    <CHeader withSubheader>
+    <CHeader className="shadow-sm" withSubheader >
       <CToggler
         inHeader
         className="ml-md-3 d-lg-none"
@@ -50,7 +51,7 @@ const TheHeader = () => {
         onClick={toggleSidebar}
       />
       <CHeaderBrand className="mx-auto d-lg-none" to="/">
-        {/* <CIcon name="logo" height="48" alt="Logo"/> */}
+       <img src={logo} alt="logo" width="250"/>
       </CHeaderBrand>
 
       <CHeaderNav className="d-md-down-none mr-auto">

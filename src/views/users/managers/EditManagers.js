@@ -58,7 +58,7 @@ const EditManagers = (props) => {
     
   return (
     <>
-      <CCard>
+      <CCard className="shadow-sm">
         <CCardHeader>
           Editing user
          
@@ -89,7 +89,7 @@ const EditManagers = (props) => {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-dark">
                 Update
               </button>
             </form>
