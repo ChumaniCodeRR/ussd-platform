@@ -19,60 +19,18 @@ const CreateNewClient = (props) => {
   const [inputs , setInputs] = useState({
     name:"",
     email:"",
-<<<<<<< HEAD
-    selected: [],
-=======
->>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
   })
   const [selectedItem,setSelectedItem] = useState([])
  
       const { register, handleSubmit, errors } = useForm();
-<<<<<<< HEAD
-      const {name,email,selected} = inputs;
-      const dispatch = useDispatch();
-      
-      const campaigns = [
-        { value: "BOLT ENERGY", label: "BOLT ENERGY"},
-        { value: "KNORR SOUP DRIVE USSD COMPETITION", label: "KNORR SOUP DRIVE USSD COMPETITION"},
-        { value: "Vetro Media Demo USSD", label : "Vetro Media Demo USSD"},
-        { value: "ZAP008851 - Wild Island Rewards Campaign", label : "ZAP008851 - Wild Island Rewards Campaign"},
-        { value: "RW00439 - Spekko Winter Shoprite campaign" ,label: "RW00439 - Spekko Winter Shoprite campaign"},
-        { value: "DGB Franschhoek Cellar" , label : "DGB Franschhoek Cellar"},
-        { value : "KWV Annabelle Cuvee Rose" , label : "KWV Annabelle Cuvee Rose"},
-        { value : "L'OR Espresso" , label : "L'OR Espresso"}
-      ] ;
-      const [selectedValue, setSelectedValue ] = useState([]);
-     //handle mulitiple change selector
-
-     const handleMultiChange = (e) => {
-
-        setSelectedValue(Array.isArray(e) ? e.map(x => x.value) : []);
-     }
-=======
       const {name,email } = inputs;
       const dispatch = useDispatch();
       const campaingList = useSelector((state) => state.campaigns);
->>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
 
       function onChange(e) {
         const { name, value } = e.target;
         setInputs((inputs) => ({ ...inputs, [name]: value, }));
       }
-<<<<<<< HEAD
-
-      function onSubmit() {
-
-        inputs.selected = {selectedValue};  
-        dispatch(createNewClient(inputs))
-        .then(() =>{
-          successMessage();
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-        
-        console.log(inputs)
-=======
  
     function  onSelect( selectedItem) {
       setSelectedItem(selectedItem)
@@ -80,7 +38,6 @@ const CreateNewClient = (props) => {
     function onSubmit(){
         console.log({inputs,selectedItem})
         //sti
->>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
       }
 
       function successMessage() {
@@ -134,24 +91,6 @@ const CreateNewClient = (props) => {
               {errors.email && (
                 <div className="text-danger">This field is required</div>
               )}
-<<<<<<< HEAD
-              </div>
-              <div className="form-group">
-                <label>Select Campaigns (working) </label>
-                <Select
-                 name="campaigns"
-                 placeholder="Campaigns"
-                 value= { campaigns.filter(obj => selectedValue.includes(obj.value)) }
-                 options={campaigns}
-                 onChange={handleMultiChange}
-                 isMulti
-                 isClearable
-                />  
-                  {selectedValue && <div style={{ marginTop: 20, lineHeight: '25px' }}>
-                  <div><b>Selected Value: </b> {JSON.stringify(selectedValue, null, 2)}</div>
-                  </div>}
-              </div>
-=======
             </div>
             <div className="form-group">
               <label>Select the campigns for this client </label>
@@ -164,7 +103,6 @@ const CreateNewClient = (props) => {
                 displayValue="name" // Property name to display in the dropdown options
               />
             </div>
->>>>>>> b0a45ece03b378ff1a23b44716f1b4d504bfe068
 
             <button type="submit" className="btn btn-primary">
               Create
