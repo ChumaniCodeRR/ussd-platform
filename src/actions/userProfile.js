@@ -5,7 +5,6 @@ import updateUser from '../services/userProfile';
 
 export const getProfile = () => (dispatch) => {
   return UserProfile.getUserDetials().then((data) => {
-      console.log(data)
       dispatch({
           type:GET_PROFILE_SUCCESS,
           payload:data

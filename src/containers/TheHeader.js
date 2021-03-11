@@ -37,6 +37,7 @@ const TheHeader = () => {
     dispatch({type: 'set', sidebarShow: val})
   }
 
+
   return (
     <CHeader className="shadow-sm" withSubheader >
       <CToggler

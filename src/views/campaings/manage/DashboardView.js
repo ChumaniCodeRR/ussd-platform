@@ -50,7 +50,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
-          header="9.823"
+          header="203"
           text="All entries"
           footerSlot={
             <ChartLineSimple
@@ -69,7 +69,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="9.823"
+          header="823"
           text="Duplicate entries"
           footerSlot={
             <ChartLineSimple
@@ -88,7 +88,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="9.823"
+          header="9823"
           text="Positive entries"
           footerSlot={
             <ChartLineSimple
@@ -107,7 +107,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="9.823"
+          header="8823"
           text="Negative entries"
           footerSlot={
             <ChartLineSimple
