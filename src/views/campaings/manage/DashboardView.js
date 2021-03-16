@@ -9,8 +9,9 @@ import {
   CBadge,
   CWidgetProgress,CProgress
 } from '@coreui/react'
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import {getCampaignById} from "../../../actions/campaing";
+import {countEntriesById } from "../../../actions/entries";
 import CIcon from '@coreui/icons-react'
 import ChartLineSimple from '../../charts/ChartLineSimple'
 import Spinner from "../../../helpers/spinner";
@@ -22,18 +23,25 @@ const DashboardView = (props) => {
   const [inputs, setInputs] = useState({
         name: "",
         start_date: "",
-        end_date: "",        
+        end_date: "",   
       });
   const [isloading, setisloading] = useState(false);
   const id = props.match.params.id;
   const dispatch = useDispatch();
+  const entry = useSelector((state) => state.entries);
+
   useEffect(() => {
     setisloading(true);
+
     dispatch(getCampaignById(id)).then((data) => {
       setInputs({ name: data.name,start_date:data.start_date,end_date:data.end_date,});
       setisloading(false);
     });
+
+    dispatch(countEntriesById(id));
+
   }, []);
+
   return (
     <>
     {isloading && <Spinner />}
@@ -50,8 +58,8 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
-          header="203"
-          text="All entries"
+          header={entry.entries.total}        
+          text="Total"
           footerSlot={
             <ChartLineSimple
             className="mt-3"
@@ -60,8 +68,8 @@ const DashboardView = (props) => {
             dataPoints={[78, 81, 80, 45, 34, 12, 40]}
             options={{ elements: { line: { borderWidth: 2.5 }}}}
             pointHoverBackgroundColor="warning"
-          />
-          }
+          /> 
+          } 
         >
         </CWidgetDropdown>
       </CCol>
@@ -69,7 +77,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="823"
+          header={entry.entries.duplicate}
           text="Duplicate entries"
           footerSlot={
             <ChartLineSimple
@@ -88,7 +96,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="9823"
+          header={entry.entries.positive}
           text="Positive entries"
           footerSlot={
             <ChartLineSimple
@@ -107,7 +115,7 @@ const DashboardView = (props) => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="8823"
+          header={entry.entries.negative}
           text="Negative entries"
           footerSlot={
             <ChartLineSimple
