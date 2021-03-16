@@ -12,7 +12,6 @@ import {
   
   const initialState = {
     managers: [],
-    managerToEdit: [],
   };
   
   export default function managers(state = initialState, action) {
@@ -52,8 +51,8 @@ import {
       case EDIT_MANAGER_SUCCESS:
         return {
           ...state,
-          managers: state.managers.map((index) =>
-            index === payload.id ? payload : managers
+          managers: state.managers.map((index,manager) =>
+            index === payload.id ? payload : manager
           ),
         };
       case EDIT_MANAGER_FAILURE:
