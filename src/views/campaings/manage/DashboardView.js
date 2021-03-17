@@ -33,6 +33,8 @@ import { Doughnut } from "react-chartjs-2";
 
   useEffect(() => {
     setisloading(true);
+    dispatch(getNetwork(id));
+    dispatch(countEntriesById(id));
 
     dispatch(getCampaignById(id)).then((data) => {
       setInputs({
@@ -42,22 +44,22 @@ import { Doughnut } from "react-chartjs-2";
       });
       setisloading(false);
     });
-    dispatch(getNetwork(id));
-    dispatch(countEntriesById(id));
+    
+  }, [dispatch]);
 
-  }, []);
+  
   //charts data
   const chartdata = {
     labels: network.networkEntries.labels,
     datasets: [
       {
-        label: network.networkEntries.datasets.label,
-        data: network.networkEntries.datasets.data,
-        backgroundColor: network.networkEntries.datasets.backgroundColor,
-        borderColor: network.networkEntries.datasets.borderColor,
+       
+         data: network.networkEntries.datasets.data,
+         label: network.networkEntries.datasets.label,
+         backgroundColor: network.networkEntries.datasets.backgroundColor,
+        // borderColor: network.networkEntries.datasets.borderColor,
         borderWidth: network.networkEntries.datasets.borderWidth,
-      },
-    ],
+      }],
   };
   return (
     <>
