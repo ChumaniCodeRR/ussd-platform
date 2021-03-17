@@ -13,26 +13,27 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { getCampaignById } from "../../../actions/campaing";
 import { getNetwork } from "../../../actions/networkEntryAction";
-import CIcon from "@coreui/icons-react";
-import ChartLineSimple from "../../charts/ChartLineSimple";
+import {countEntriesById } from "../../../actions/entries";
+import ChartLineSimple from '../../charts/ChartLineSimple'
 import Spinner from "../../../helpers/spinner";
 import Chart from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
   const DashboardView = (props) => {
   const [inputs, setInputs] = useState({
-    name: "",
-    start_date: "",
-    end_date: "",
-  });
+        name: "",
+        start_date: "",
+        end_date: "",   
+      });
   const [isloading, setisloading] = useState(false);
   const id = props.match.params.id;
   const dispatch = useDispatch();
+  const entry = useSelector((state) => state.entries);
   const network = useSelector((state) => state.networkEntries);
 
   useEffect(() => {
     setisloading(true);
-    dispatch(getNetwork(id));
+
     dispatch(getCampaignById(id)).then((data) => {
       setInputs({
         name: data.name,
@@ -41,6 +42,9 @@ import { Doughnut } from "react-chartjs-2";
       });
       setisloading(false);
     });
+    dispatch(getNetwork(id));
+    dispatch(countEntriesById(id));
+
   }, []);
   //charts data
   const chartdata = {
@@ -73,7 +77,7 @@ import { Doughnut } from "react-chartjs-2";
               <CCol sm="6" lg="3">
                 <CWidgetDropdown
                   color="gradient-primary"
-                  header="203"
+                  header={entry.entries.total}
                   text="All entries"
                   footerSlot={
                     <ChartLineSimple
@@ -91,7 +95,7 @@ import { Doughnut } from "react-chartjs-2";
               <CCol sm="6" lg="3">
                 <CWidgetDropdown
                   color="gradient-info"
-                  header="823"
+                  header={entry.entries.duplicate}
                   text="Duplicate entries"
                   footerSlot={
                     <ChartLineSimple
@@ -109,7 +113,7 @@ import { Doughnut } from "react-chartjs-2";
               <CCol sm="6" lg="3">
                 <CWidgetDropdown
                   color="gradient-warning"
-                  header="9823"
+                  header={entry.entries.positive}
                   text="Positive entries"
                   footerSlot={
                     <ChartLineSimple
@@ -127,7 +131,7 @@ import { Doughnut } from "react-chartjs-2";
               <CCol sm="6" lg="3">
                 <CWidgetDropdown
                   color="gradient-danger"
-                  header="8823"
+                  header={entry.entries.negative}
                   text="Negative entries"
                   footerSlot={
                     <ChartLineSimple
