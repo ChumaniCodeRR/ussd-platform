@@ -7,8 +7,6 @@ import {
   CCardBody,
   CWidgetDropdown,
   CBadge,
-  CWidgetProgress,
-  CProgress,
 } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCampaignById } from "../../../actions/campaing";
@@ -25,17 +23,41 @@ import { Doughnut } from "react-chartjs-2";
         start_date: "",
         end_date: "",   
       });
+  //charts data state
+  const [chartdata,setchartdata] = useState({
+    labels:"",
+    datasets:[{
+      label:"",
+      data:"",
+      backgroundColor:"",
+      borderColor:"",
+    }],
+    borderWidth:""
+  })
   const [isloading, setisloading] = useState(false);
   const id = props.match.params.id;
   const dispatch = useDispatch();
   const entry = useSelector((state) => state.entries);
-  const network = useSelector((state) => state.networkEntries);
 
+  
   useEffect(() => {
     setisloading(true);
-    dispatch(getNetwork(id));
+    //Get network entry by id and set the chart data state
+    dispatch(getNetwork(id)).then((da) => {
+      setchartdata({
+        labels:da.labels,
+        datasets:[{
+          label:da.datasets.label,
+          data:da.datasets.data,
+          backgroundColor:da.datasets.backgroundColor,
+          borderColor:da.datasets.borderColor
+        }],
+        borderWidth:da.borderWidth
+      })
+    });
+    //get the count of entry
     dispatch(countEntriesById(id));
-
+   //get campaign details and set the state
     dispatch(getCampaignById(id)).then((data) => {
       setInputs({
         name: data.name,
@@ -47,20 +69,6 @@ import { Doughnut } from "react-chartjs-2";
     
   }, [dispatch]);
 
-  
-  //charts data
-  const chartdata = {
-    labels: network.networkEntries.labels,
-    datasets: [
-      {
-       
-         data: network.networkEntries.datasets.data,
-         label: network.networkEntries.datasets.label,
-         backgroundColor: network.networkEntries.datasets.backgroundColor,
-        // borderColor: network.networkEntries.datasets.borderColor,
-        borderWidth: network.networkEntries.datasets.borderWidth,
-      }],
-  };
   return (
     <>
       {isloading && <Spinner />}

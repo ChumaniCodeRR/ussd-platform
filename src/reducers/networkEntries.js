@@ -1,7 +1,7 @@
 import { GET_NETWORK_SUCCESS, GET_NETWORK_FAILURE } from "../actions/type";
 
 const initialState = {
-  networkEntries: [],
+  networkEntries: {},
 };
 
 export default function networkEntry(state = initialState, action) {

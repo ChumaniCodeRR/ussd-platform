@@ -3,16 +3,17 @@ import NetworkService from '../services/networkService';
 
 
 
-export const getNetwork = (id) => (dispatch) => {
-    return NetworkService.getNetworkEntries(id).then((data) => {
-        dispatch({
-            type:GET_NETWORK_SUCCESS,
-            payload:data,
-        })
-    },(error) => {
-        dispatch({
-            type:GET_NETWORK_FAILURE,
-            error
-        })
-    })
+export const getNetwork = (id) => () => {
+    return NetworkService.getNetworkEntries(id)
+    // .then((data) => {
+    //     dispatch({
+    //         type:GET_NETWORK_SUCCESS,
+    //         payload:data,
+    //     })
+    // },(error) => {
+    //     dispatch({
+    //         type:GET_NETWORK_FAILURE,
+    //         error
+    //     })
+    // })
 }

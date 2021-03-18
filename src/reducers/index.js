@@ -7,10 +7,10 @@ import admins from './admin';
 import managers from './manager'
 import clients from './client'
 import ussd from './ussdCode';
-import networkEntries from './networkEntries';
+import networkEntry from './networkEntries';
 import entries from './entry';
 const rootReducer = combineReducers({
-    auth,resetPassword,campaigns,profile,admins,managers,clients,ussd,networkEntries,entries
+    auth,resetPassword,campaigns,profile,admins,managers,clients,ussd,networkEntry,entries
     
 })
 export default rootReducer
