@@ -60,25 +60,6 @@ const _nav =  [
     to: '/ussd',
     icon: <CIcon name="cil-laptop" customClasses="c-sidebar-nav-icon"/>,
   },
-  // {
-  //   _tag: 'CSidebarNavItem',
-  //   name: 'WhatsApp Number',
-  //   to: '/whatsapp',
-  //   icon: <CIcon name="cil-laptop" customClasses="c-sidebar-nav-icon"/>,
-  // },{
-  //   _tag: 'CSidebarNavItem',
-  //   name: 'Backup',
-  //   to: '/backup',
-  //   icon: <CIcon name="cil-settings" customClasses="c-sidebar-nav-icon"/>,
-  // },
-  {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2'
-  },
-  {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2'
-  }
 ]
 
 export default _nav
