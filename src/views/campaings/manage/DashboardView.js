@@ -10,32 +10,18 @@ import {
 } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCampaignById } from "../../../actions/campaing";
-import { getNetwork } from "../../../actions/networkEntryAction";
 import { countEntriesById } from "../../../actions/entries";
 import ChartLineSimple from "../../charts/ChartLineSimple";
 import Spinner from "../../../helpers/spinner";
-import Chart from "chart.js";
-import { Doughnut } from "react-chartjs-2";
 import BarcodeTable from './BarcodeTable';
+import NetworkEntryChart from './charts/NetworkEntryChart';
+
 
 const DashboardView = (props) => {
   const [inputs, setInputs] = useState({
     name: "",
     start_date: "",
     end_date: "",
-  });
-  //charts data state
-  const [chartdata, setchartdata] = useState({
-    labels: "",
-    datasets: [
-      {
-        label: "",
-        data: "",
-        backgroundColor: "",
-        borderColor: "",
-      },
-    ],
-    borderWidth: "",
   });
   const [isloading, setisloading] = useState(false);
   const id = props.match.params.id;
@@ -44,21 +30,6 @@ const DashboardView = (props) => {
 
   useEffect(() => {
     setisloading(true);
-    //Get network entry by id and set the chart data state
-    dispatch(getNetwork(id)).then((da) => {
-      setchartdata({
-        labels: da.labels,
-        datasets: [
-          {
-            label: da.datasets.label,
-            data: da.datasets.data,
-            backgroundColor: da.datasets.backgroundColor,
-            borderColor: da.datasets.borderColor,
-          },
-        ],
-        borderWidth: da.borderWidth,
-      });
-    });
     //get the count of entry
     dispatch(countEntriesById(id));
     //get campaign details and set the state
@@ -188,7 +159,7 @@ const DashboardView = (props) => {
                 <CCard accentColor="danger" className="shadow-sm">
                   <CCardHeader>Network Entries</CCardHeader>
                   <CCardBody>
-                    <Doughnut data={chartdata} />
+                    <NetworkEntryChart  campaign_id={id}/>
                   </CCardBody>
                 </CCard>
               </CCol>
