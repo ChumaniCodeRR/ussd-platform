@@ -36,13 +36,12 @@ const BarcodeTable = ({ campaign_id }) => {
                 <th>Barcode</th>
                 <th>Barcode digits</th>
                 <th>Total Purchase</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
               {!barcodeslist.barcodes && (
                 <div class="alert " role="alert">
-                  This campaign does not have barcode!
+                  This campaign does not have barcodes!
                 </div>
               )}
               {barcodeslist.barcodes &&

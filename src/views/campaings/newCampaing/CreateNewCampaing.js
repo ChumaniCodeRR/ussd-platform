@@ -89,15 +89,14 @@ const CreateNewCampaing = (props) => {
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label>Prefix</label>
-                  <select id="inputState" className="form-control"
-                  name="prefix"
+                  <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter prefix"
+                  name="name"
                   value={prefix}
                   onChange={onChange}
-                  ref={register({ required: true })}
-                  >
-                    <option>Choose...</option>
-                    <option value="test">...</option>
-                  </select>
+                />
                 </div>
                 <div className="form-group col-md-6">
                   <label>Enter the shortcode (SMS & USSD only)</label>

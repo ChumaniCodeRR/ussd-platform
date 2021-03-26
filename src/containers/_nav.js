@@ -47,10 +47,6 @@ const _nav =  [
     icon: 'cil-user',
   },
   {
-    _tag: 'CSidebarNavDivider'
-  },
-  ,
-  {
     _tag: 'CSidebarNavTitle',
     _children: ['Others']
   },

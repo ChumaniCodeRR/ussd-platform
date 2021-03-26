@@ -10,6 +10,7 @@ import "./Login.css";
 
 
 const Login = (props) => {
+
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -76,7 +77,7 @@ const Login = (props) => {
                <Link to="/reset" variant="body2">
                Forgot your password?
               </Link>
-        <button>Sign In</button>
+        <button style={{ borderRadius: '20px',padding:'12px 45px' }} >Sign In</button>
         {isloading && <Spinner />}
       </form>
     </div>
