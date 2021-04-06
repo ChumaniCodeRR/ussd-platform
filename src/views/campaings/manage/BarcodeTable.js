@@ -21,7 +21,9 @@ const BarcodeTable = ({ campaign_id }) => {
   const barcodeslist = useSelector((state) => state.barcodes);
 
   useEffect(() => {
-    dispatch(getAllBarcodes(campaign_id));
+    dispatch(getAllBarcodes(campaign_id)).then((data) => {
+      console.log(data)
+    });
   }, []);
 
   return (
@@ -65,6 +67,7 @@ const BarcodeTable = ({ campaign_id }) => {
                   ))}
             </tbody>
           </table>
+          {barcodeslist.barcodes && (
           <TablePagination
             rowsPerPageOptions={[5, 8]}
             component="div"
@@ -73,7 +76,7 @@ const BarcodeTable = ({ campaign_id }) => {
             page={page}
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
-          />
+          />  )}
         </CCardBody>
       </CCard>
     </>
