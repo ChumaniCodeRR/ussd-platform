@@ -28,6 +28,7 @@ const TheSidebar = () => {
     >
       <CSidebarBrand className="d-md-down-none" to="/">
       <img src={logo} alt="logo" width="250"/>
+      
       </CSidebarBrand>
       <CSidebarNav>
 

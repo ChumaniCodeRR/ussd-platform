@@ -2,13 +2,15 @@ import { GET_PROFILE_SUCCESS,GET_PROFILE_FAIL,EDIT_PROFILE_SUCCESS ,EDIT_PROFILE
 import UserProfile from '../services/userProfile';
 import updateUser from '../services/userProfile';
 
-
 export const getProfile = () => (dispatch) => {
   return UserProfile.getUserDetials().then((data) => {
       dispatch({
           type:GET_PROFILE_SUCCESS,
           payload:data
       })
+      setTimeout(() => {
+        localStorage.removeItem("user");
+      },28800000)
   },(error) => {
       dispatch({
           type:GET_PROFILE_FAIL,

@@ -75,7 +75,7 @@ const Login = (props) => {
                 <div className="text-danger">This field is required</div>
               )}
                <Link to="/reset" variant="body2">
-               Forgot your password?
+               <div className="mb-4">Forgot your password?</div>
               </Link>
         <button style={{ borderRadius: '20px',padding:'12px 45px' }} >Sign In</button>
         {isloading && <Spinner />}
