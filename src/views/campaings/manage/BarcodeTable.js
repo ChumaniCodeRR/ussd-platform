@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import classNames from "classnames";
+
 import { CRow, CCol, CCard, CCardHeader, CCardBody } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBarcodes } from "../../../actions/barcodesActions";

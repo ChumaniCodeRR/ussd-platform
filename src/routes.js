@@ -19,9 +19,8 @@ const Managers = React.lazy(() => import('./views/users/managers/Managers'));
 const CreateNewManagers = React.lazy(() => import('./views/users/managers/CreateNewManagers'));
 const EditManager = React.lazy(() => import('./views/users/managers/EditManagers'));
 
-const Backup = React.lazy(() => import('./views/backup/Backup'))
 const UssdShortCodes = React.lazy(() => import('./views/ussd/UssdShortCodes'))
-const WhatsApp = React.lazy(() => import('./views/whatsapp/WhatsApp'))
+
 
 
 const routes = [
@@ -31,13 +30,13 @@ const routes = [
   { path: '/campaings/manage', name: 'Manage', component: Manage },
   { path: '/campaings/createNew', name: 'Create new', component: CreateNewCampaing },
   { path: '/campaings/edit/:id', name: 'Edit Campaign', component: EditCampaigns },
-  {path:'/campaings/dashboard/:id',name:'Dashboard View',component:DashboardView},
+  { path: '/campaings/dashboard/:id',name:'Dashboard View',component:DashboardView},
 
   { path: '/admins', name: 'Admin', component: Admin, exact: true },
   { path: '/admins/admin', name: 'Admin', component: Admin },
   { path: '/admins/createNew', name: 'Create new', component: CreateNewAdmin },
   { path: '/admins/editAdmin/:id', name: 'Edit Admin', component: EditAdmin },
-
+   
   { path: '/clients', name: 'Client', component: Clients, exact: true },
   { path: '/clients/client', name: 'Clients', component: Clients },
   { path: '/clients/createNew', name: 'Create New', component: CreateNewClient },
@@ -48,11 +47,9 @@ const routes = [
   { path: '/manager/createNew', name: 'Create New', component: CreateNewManagers },
   { path: '/manager/editManager/:id', name: 'Edit Manager', component: EditManager },
 
-  { path: '/whatsapp', name: 'WhatsApp', component: WhatsApp },
   { path: '/ussd', name: 'USSD Shortcodes', component: UssdShortCodes },
-  { path: '/backup', name: 'Backup', component: Backup },
 
-  {path: '/profile' ,name : 'Profile' ,component:Profile}
+  { path: '/profile' ,name : 'Profile' ,component:Profile}
 ];
 
 export default routes;

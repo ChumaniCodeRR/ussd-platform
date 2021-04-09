@@ -23,7 +23,7 @@ const NetworkEntryChart = ({campaign_id}) => {
   const [isloading, setisloading] = useState(false);
 
   useEffect(() => {
-    setisloading(true);
+    setisloading(true); 
     dispatch(getNetwork(campaign_id)).then((da) => {
         setchartdata({
           labels: da.labels,
