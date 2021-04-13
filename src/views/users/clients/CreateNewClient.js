@@ -14,7 +14,7 @@ import {createNewClient} from '../../../actions/client';
 import Select from "react-select";
 //import "react-select/dist/react-select.css";
 
-const CreateNewClient = (props) => {
+  const CreateNewClient = (props) => {
 
   const [inputs , setInputs] = useState({
     name:"",

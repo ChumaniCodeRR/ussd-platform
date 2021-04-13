@@ -27,13 +27,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const campaingList = useSelector((state) => state.campaigns);
   const [isloading, setisloading] = useState(false);
-  // useEffect(() => {
-  //   setisloading(true);
-  //   dispatch(getAllCampaings()).then(() => {
-  //     setisloading(false);
-  //   });
-  // }, []);
-
+  
 //seach bar controlls
 const [campaigns, setCampaings] = useState([]);
 const [searchTerm, setSearchTerm] = useState("");
